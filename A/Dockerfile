@@ -4,7 +4,9 @@ RUN apt-get update -y && \
   apt-get install -y \
    nano \
    mongodb \
-   nodejs && \
+   nodejs \
+   nodejs-legacy \
+   npm && \
   mkdir /app
 
 RUN npm install
