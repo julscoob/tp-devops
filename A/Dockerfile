@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
-RUN apt-get update && \
-  apt-get install \
+RUN apt-get update -y && \
+  apt-get install -y \
    nano \
    mongodb \
    nodejs && \
