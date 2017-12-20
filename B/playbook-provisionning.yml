@@ -1,0 +1,28 @@
+---
+
+ tasks:
+  - name: install MongoDb
+    apt:
+      name: mongodb
+      update_cache: yes
+
+  - name: install Docker
+    apt:
+      name: docker-ce
+      update-cache: yes
+
+  - name: 
+
+  - name: configure MongoDb
+    template:
+      src: ./mongod.conf
+      dest: /etc/mongod.conf
+    notify: restart mongodb
+
+  - name: 
+
+handlers:
+ - name: restart mongodb
+   service:
+    name: mongodb
+    state: restarted
