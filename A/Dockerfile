@@ -1,4 +1,3 @@
-
 FROM node:alpine
 
 RUN apk update && \
@@ -9,10 +8,13 @@ RUN apk update && \
    mkdir /app \
    mkdir /src
 WORKDIR /src
-ADD app/package.json /src/package.json
-ADD app/package-lock.json /src/package-lock/json
+ADD app.js /src/app.js
+ADD package.json /src/package.json
+ADD package-lock.json /src/package-lock.json
 RUN npm install
 
 COPY . /app
 
 CMD cat /app/test.txt
+
+

@@ -1,4 +1,4 @@
-  version: '2'
+version: '2'
 services:
   web:
     build: .
@@ -11,10 +11,24 @@ services:
     depends_on:
       - mongodb
     environment:
-      DATABASE_URL: mongodb://${MONGO_HOST}:${MONGO_PORT}/${MONGO_DATABASE}
-  mongo:
+      DATABASE_URL: mongodb://localhost:80/mongo
+  mongodb:
     image: mvertes/alpine-mongo
-    environment:
-      MONGO_HOST=localhost
-      MONGO_PORT=80
-      MONGO_DATABASE=mongo
+    networks:
+     - back-tier
+    command: nodemon . --exitcrash
+    volumes:
+     - db-data:/data/db
+    ports:
+     - "3001:3001"
+networks:
+  front-tier:
+    driver: bridge
+  back-tier:
+    driver: bridge
+volumes:
+  dependencies:
+  db-data:
+
+
+
