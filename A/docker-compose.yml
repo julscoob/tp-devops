@@ -30,5 +30,3 @@ volumes:
   dependencies:
   db-data:
 
-
-

@@ -7,14 +7,12 @@ RUN apk update && \
    nodejs && \
    mkdir /app \
    mkdir /src
+
 WORKDIR /src
-ADD app.js /src/app.js
-ADD package.json /src/package.json
-ADD package-lock.json /src/package-lock.json
+ADD app.js app.js
+ADD package.json package.json
+ADD package-lock.json package-lock.json
 RUN npm install
 
-COPY . /app
-
-CMD cat /app/test.txt
-
+COPY . .
 
