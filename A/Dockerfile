@@ -1,16 +1,13 @@
 
-FROM ubuntu:latest
+FROM node:alpine
 
-RUN apt-get update -y && \
-  apt-get install -y \
+RUN apk update && \
+  apk add \
    nano \
    mongodb \
-   nodejs \
-   nodejs-legacy \
-   npm && \
-  mkdir /app \
-  mkdir /src
-
+   nodejs && \
+   mkdir /app \
+   mkdir /src
 WORKDIR /src
 ADD app/package.json /src/package.json
 ADD app/package-lock.json /src/package-lock/json
