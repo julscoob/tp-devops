@@ -8,7 +8,7 @@ RUN apt-get update -y && \
    nodejs \
    nodejs-legacy \
    npm && \
-  mkdir /app
+  mkdir /app \
   mkdir /src
 
 WORKDIR /src
