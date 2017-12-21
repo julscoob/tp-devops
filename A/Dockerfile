@@ -9,6 +9,7 @@ RUN apt-get update -y && \
    nodejs-legacy \
    npm && \
   mkdir /app
+  mkdir /src
 
 WORKDIR /src
 ADD app/package.json /src/package.json
