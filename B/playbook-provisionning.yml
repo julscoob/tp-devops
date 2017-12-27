@@ -8,3 +8,7 @@
   - name: install Docker
     roles:
      - role: opichon.install-docker-ce
+
+  - name: docker swarm
+    roles:
+     - role: atosatto.docker-swarm
