@@ -1,0 +1,43 @@
+version: '3.3'
+services:
+  haproxy:
+    image: dockercloud/haproxy
+    networks:
+     - proxy
+    volumes:
+     - '/var/run/docker.sock:/var/run/docker.sock'
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+      placement:
+        constraints:
+          - "node.labels.loadbalanced == true"
+          - "node.role == manager"
+      resources:
+        limits:
+          cpus: "0.05"
+          memory: 64M
+        reservations:
+          cpus: '0.01'
+          memory: 20M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+        mode: host
+  hello-world:
+    image: dockercloud/hello-world
+    deploy: 
+      replicas: 4
+    networks:
+      - host: 'http://hello.homecolis.janl'
+      
+networks:
+  - proxy
+      external: true
+volumes:
+  db-data:
