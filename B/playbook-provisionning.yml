@@ -12,7 +12,3 @@
   - name: docker swarm
     roles:
      - role: atosatto.docker-swarm
-
-  - name: Create a network
-    docker_network:
-      name: proxy
