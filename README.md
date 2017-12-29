@@ -9,7 +9,7 @@
 
 ### Les scripts
 
-__Tous les scripts sont fournis dans leur emplacement, ainsi qu'une capture d'écran qui démontre la commande à effectuer pour les lancer. __
+> Tous les scripts sont fournis dans leur emplacement, ainsi qu'une capture d'écran qui démontre la commande à effectuer pour les lancer.
 
 #### Prérequis
  * pip
